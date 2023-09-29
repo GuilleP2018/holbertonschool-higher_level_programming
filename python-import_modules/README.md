@@ -1,20 +1,17 @@
-<h4 align="center">
-    <div class="HeaderSticker">
-        <img src="https://media.giphy.com/media/AHcEGB5nuIALBqKWjp/giphy.gif"/>
-    </div>
-    <h1 align="center"> Python - Import & Modules </h1>
-</h4>
+# Python - import & modules
 
-### Description
-Mandatory Task
+This is a readme file for the third python project of the semester, it contains different projects to help me get used to importing and using modules in Python
 
-* Task 0 - Write a program that imports the function def add(a, b): from the file add_0.py and prints the result of the addition 1 + 2 = 3
-* Task 1 - Write a program that imports functions from the file calculator_1.py, does some Maths, and prints the result.
-* Task 2 - Write a program that prints the number of and the list of its arguments.
-* Task 3 - Write a program that prints the result of the addition of all arguments
-* Task 4 - Write a program that prints all the names defined by the compiled module hidden_4.pyc (please download it locally).
-* Task 5 - Write a program that imports the variable a from the file variable_load_5.py and prints its value.
+## Repository Contents
 
-Advance Task
+This directory contains various projects related to importing modules in Python.
+--0-add.py
+--1-calculation.py
+--2-args.py
+--3-infinite_add.py
+--4-hidden_discovery.py
+--5-variable_load.py
 
-* Task 6 - Write a program that imports all functions from the file calculator_1.py and handles basic operations.
+## About Me
+
+Hi im Guillermo Pereyo, the main programmer behind these projects. My github is Guillep2018. I am a student at Holberton School. I am currently learning about high-level programming, and I am enjoying it a lot. I hope you enjoy my projects and code examples. Have a nice day!
