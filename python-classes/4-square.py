@@ -6,13 +6,22 @@ class Square:
     """This class defines a square"""
 
     def __init__(self, size=0):
-        """initializes th9e data"""
-        if not isinstance(size, int):
+        """initializes the data"""
+        self.__size = size
+
+    @property.setter
+    def size(self, value):
+        """property setter"""
+        if not isinstance(value, int):
             raise TypeError("size must be an int")
-        elif size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = value
+
+    @property
+    def size(self):
+        """Property"""
+        return self.__size
 
     def area(self):
         """generates the area"""
