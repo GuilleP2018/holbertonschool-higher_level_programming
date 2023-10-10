@@ -9,6 +9,11 @@ class Square:
         """initializes the data"""
         self.__size = size
 
+    @property
+    def size(self):
+        """Property"""
+        return self.__size
+
     @property.setter
     def size(self, value):
         """property setter"""
@@ -17,11 +22,6 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-
-    @property
-    def size(self):
-        """Property"""
-        return self.__size
 
     def area(self):
         """generates the area"""
