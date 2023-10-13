@@ -10,18 +10,9 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Init function"""
-        if type(width) is not int:
-            raise TypeError('width must be an integer')
-        elif type(height) is not int:
-            raise TypeError('height must be an integer')
-        elif height < 0:
-            raise ValueError('height must be >= 0')
-        elif width < 0:
-            raise ValueError('width must be >= 0')
-        else:
-            self.__height = height
-            self.__width = width
-            Rectangle.number_of_instances += 1
+        self.__height = height
+        self.__width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -82,5 +73,5 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
