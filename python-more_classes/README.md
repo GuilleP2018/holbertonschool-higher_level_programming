@@ -12,6 +12,9 @@ This directory contains various projects related to classes in Python.
 --4-rectangle.py
 --5-rectangle.py
 --6-rectangle.py
+--7-rectangle.py
+--8-rectangle.py
+--9-rectangle.py
 
 ## About Me
 
