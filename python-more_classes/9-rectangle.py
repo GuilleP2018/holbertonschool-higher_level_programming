@@ -10,9 +10,18 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Init function"""
-        self.__height = height
-        self.__width = width
-        Rectangle.number_of_instances += 1
+        if type(width) is not int:
+            raise TypeError('width must be an integer')
+        elif type(height) is not int:
+            raise TypeError('height must be an integer')
+        elif height < 0:
+            raise ValueError('height must be >= 0')
+        elif width < 0:
+            raise ValueError('width must be >= 0')
+        else:
+            self.__height = height
+            self.__width = width
+            Rectangle.number_of_instances += 1
 
     @property
     def width(self):
