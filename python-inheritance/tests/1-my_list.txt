@@ -1,0 +1,24 @@
+>>> MyList = __import__('1-my_list').MyList
+
+
+>>> l = MyList([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
+>>> l.print_sorted()
+[1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
+
+
+>>> l = MyList()
+>>> l.print_sorted()
+[]
+"""
+
+class MyList(list):
+    """a class that inherits from List"""
+
+    def print_sorted(self):
+        """print-sorted
+        prints a sorted list
+        Arg:
+            self: the list
+
+        """
+        print(sorted(self))
