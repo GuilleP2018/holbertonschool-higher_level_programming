@@ -14,5 +14,8 @@ class BaseGeometry:
         """Checks the type and if negative for value"""
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
+        elif value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+        else:
+            self.name = name
+            self.value = value
