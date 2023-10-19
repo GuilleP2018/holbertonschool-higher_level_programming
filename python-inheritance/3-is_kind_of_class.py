@@ -4,9 +4,7 @@
 
 def is_kind_of_class(obj, a_class):
     """true if same class or inherits, false otherwise"""
-    if isinstance(obj, a_class):
-        return True
-    elif issubclass(obj, a_class):
+    if isinstance(obj, a_class) or issubclass(obj, a_class):
         return True
     else:
         return False
