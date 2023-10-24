@@ -13,25 +13,9 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Init function"""
         super().__init__(id)
-        if type(width) is not int:
-            raise TypeError("width must be an integer")
-        if width <= 0:
-            raise ValueError("width must be > 0")
         self.__width = width
-        if type(height) is not int:
-            raise TypeError("height must be an integer")
-        if height <= 0:
-            raise ValueError("height must be > 0")
         self.__height = height
-        if type(x) is not int:
-            raise TypeError("x must be an integer")
-        if x <= 0:
-            raise ValueError("x must be >= 0")
         self.__x = x
-        if type(y) is not int:
-            raise TypeError("y must be an integer")
-        if y <= 0:
-            raise ValueError("y must be >= 0")
         self.__y = y
 
     @property
@@ -89,3 +73,16 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """returns area calculation for rectangle instance"""
+        return (self.width * self.height)
+
+    def display(self):
+        """prints in stdout the rectangle instance with '#'
+        with offsets x and y taken into account"""
+        for vertical in range(self.y):
+            print("")
+        for row in range(self.height):
+            print(" "*self.x, end="")
+            print("#"*self.width)
