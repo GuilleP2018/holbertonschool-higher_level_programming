@@ -5,15 +5,20 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Square class"""
+
     def __init__(self, size, x=0, y=0, id=None):
-        super().__init__(size, size, x, y, id)
+        """init function"""
+        super().__init__(id, x, y, width=size, height=size)
 
     @property
     def size(self):
+        """getter"""
         return self.__width
 
     @size.setter
     def size(self, value):
+        """setter"""
         if not isinstance(value, int):
             raise ValueError("size must be an integer")
         if value <= 0:
@@ -22,6 +27,7 @@ class Square(Rectangle):
         self.__height = value
 
     def update(self, *args, **kwargs):
+        """Update func"""
         if args:
             if len(args) >= 1:
                 self.id = args[0]
@@ -44,5 +50,6 @@ class Square(Rectangle):
                 self.__y = kwargs['y']
 
     def to_dictionary(self):
+        """dictionary func"""
         return {'id': self.id, 'size': self.__width,
                 'x': self.__x, 'y': self.__y}
