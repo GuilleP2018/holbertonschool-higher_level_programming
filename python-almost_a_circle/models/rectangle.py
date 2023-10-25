@@ -79,8 +79,7 @@ class Rectangle(Base):
         return (self.width * self.height)
 
     def display(self):
-        """prints in stdout the rectangle instance with '#'
-        with offsets x and y taken into account"""
+        """prints in stdout the rectangle instance with '#'"""
         for i in range(self.y):
             print()
         for i in range(self.height):
@@ -91,8 +90,7 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """override __str__ with new string in the format
-        [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        """override __str__ with new string in the format"""
         return (f"[Rectangle] ({self.id}) "
                 f"{self.x}/{self.y} - {self.width}/{self.height}")
 
