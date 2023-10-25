@@ -90,10 +90,8 @@ class Rectangle(Base):
     def __str__(self):
         """override __str__ with new string in the format
         [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        str_rep = "[Rectangle] ({}) {}/{} - {}/{}".format(
-            str(self.__id), str(self.__x), str(self.__y),
-            str(self.__width), str(self.__height))
-        return (str_rep)
+        return (f"[Rectangle] ({self.id}) "
+                f"{self.x}/{self.y} - {self.width}/{self.height}")
 
     def update(self, *args, **kwargs):
         """assigns an argument to each attribute of Rectangle"""
