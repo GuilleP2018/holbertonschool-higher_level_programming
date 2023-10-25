@@ -24,3 +24,7 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             s = Square(4)
             s.size = -3
+
+
+if __name__ == '__main__':
+    unittest.main()

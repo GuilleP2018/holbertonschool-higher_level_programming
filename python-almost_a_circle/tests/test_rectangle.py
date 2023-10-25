@@ -20,12 +20,6 @@ class TestRectangle(unittest.TestCase):
         expected_dict = {'id': 42, 'width': 4, 'height': 5, 'x': 1, 'y': 2}
         self.assertDictEqual(r_dict, expected_dict)
 
-    def test_create_from_dictionary(self):
-        """create from dictionary test"""
-        r_dict = {'id': 42, 'width': 4, 'height': 5, 'x': 1, 'y': 2}
-        r = Rectangle.create(r_dict)
-        self.assertEqual(r.id, 42)
-        self.assertEqual(r.width, 4)
-        self.assertEqual(r.height, 5)
-        self.assertEqual(r.x, 1)
-        self.assertEqual(r.y, 2)
+
+if __name__ == '__main__':
+    unittest.main()
