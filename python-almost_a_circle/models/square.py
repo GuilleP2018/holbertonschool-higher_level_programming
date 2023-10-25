@@ -32,24 +32,16 @@ class Square(Rectangle):
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
-                self.__width = args[1]
-                self.__height = args[1]
+                self.size = args[1]
             if len(args) >= 3:
-                self.__x = args[2]
+                self.x = args[2]
             if len(args) >= 4:
-                self.__y = args[3]
+                self.y = args[3]
         else:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'size' in kwargs:
-                self.__width = kwargs['size']
-                self.__height = kwargs['size']
-            if 'x' in kwargs:
-                self.__x = kwargs['x']
-            if 'y' in kwargs:
-                self.__y = kwargs['y']
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """dictionary func"""
-        return {'id': self.id, 'size': self.__width,
-                'x': self.__x, 'y': self.__y}
+        return {'id': self.id, 'size': self.size,
+                'x': self.x, 'y': self.y}

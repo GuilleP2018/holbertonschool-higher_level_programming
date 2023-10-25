@@ -81,11 +81,14 @@ class Rectangle(Base):
     def display(self):
         """prints in stdout the rectangle instance with '#'
         with offsets x and y taken into account"""
-        for vertical in range(self.__y):
-            print("")
-        for row in range(self.__height):
-            print(" "*self.__x, end="")
-            print("#"*self.__width)
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            for j in range(self.x):
+                print(" ", end="")
+            for j in range(self.width):
+                print("#", end="")
+            print()
 
     def __str__(self):
         """override __str__ with new string in the format
@@ -95,38 +98,13 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """assigns an argument to each attribute of Rectangle"""
-        attr_list = ["id", "width", "height", "x", "y"]
-        if args and len(args) != 0:
-            for i in range(len(args)):
-                if i == 0:
-                    self.id = args[i]
-                if i == 1:
-                    self.__width = args[i]
-                if i == 2:
-                    self.__height = args[i]
-                if i == 3:
-                    self.__x = args[i]
-                if i == 4:
-                    self.__y = args[i]
+        if args:
+            self.id, self.width, self.height, self.x, self.y = args
         else:
-            for kw in kwargs:
-                if kw == "id":
-                    self.id = (kwargs[kw])
-                if kw == "width":
-                    self.__width = (kwargs[kw])
-                if kw == "height":
-                    self.__height = (kwargs[kw])
-                if kw == "x":
-                    self.__x = (kwargs[kw])
-                if kw == "y":
-                    self.__y = (kwargs[kw])
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """returns dictionary representation of a Rectangle"""
-        dict_rep = {}
-        dict_rep["id"] = self.id
-        dict_rep["width"] = self.__width
-        dict_rep["height"] = self.__height
-        dict_rep["x"] = self.__x
-        dict_rep["y"] = self.__y
-        return dict_rep
+        return {'id': self.id, 'width': self.width, 'height': self.height,
+                'x': self.x, 'y': self.y}
