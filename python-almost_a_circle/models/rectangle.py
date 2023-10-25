@@ -41,7 +41,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Width setter"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -50,7 +50,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """height setter"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -59,7 +59,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """x setter"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -68,7 +68,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """y setter"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -101,7 +101,7 @@ class Rectangle(Base):
         if args and len(args) != 0:
             for i in range(len(args)):
                 if i == 0:
-                    self.__id = args[i]
+                    self.id = args[i]
                 if i == 1:
                     self.__width = args[i]
                 if i == 2:
@@ -113,7 +113,7 @@ class Rectangle(Base):
         else:
             for kw in kwargs:
                 if kw == "id":
-                    self.__id = (kwargs[kw])
+                    self.id = (kwargs[kw])
                 if kw == "width":
                     self.__width = (kwargs[kw])
                 if kw == "height":
@@ -126,7 +126,7 @@ class Rectangle(Base):
     def to_dictionary(self):
         """returns dictionary representation of a Rectangle"""
         dict_rep = {}
-        dict_rep["id"] = self.__id
+        dict_rep["id"] = self.id
         dict_rep["width"] = self.__width
         dict_rep["height"] = self.__height
         dict_rep["x"] = self.__x
