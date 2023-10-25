@@ -9,10 +9,10 @@ class Base:
     def __init__(self, id=None):
         """Initializing function"""
         if id is not None:
-            self.id = id
+            self.__id = id
         else:
             Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            self.__id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):

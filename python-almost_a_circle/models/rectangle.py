@@ -41,7 +41,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Width setter"""
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -50,7 +50,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """height setter"""
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -59,41 +59,41 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """x setter"""
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
 
     @y.setter
     def y(self, value):
         """y setter"""
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
         """returns area calculation for rectangle instance"""
-        return (self.width * self.height)
+        return (self.__width * self.__height)
 
     def display(self):
         """prints in stdout the rectangle instance with '#'
         with offsets x and y taken into account"""
-        for vertical in range(self.y):
+        for vertical in range(self.__y):
             print("")
-        for row in range(self.height):
-            print(" "*self.x, end="")
-            print("#"*self.width)
+        for row in range(self.__height):
+            print(" "*self.__x, end="")
+            print("#"*self.__width)
 
-        def __str__(self):
-            """override __str__ with new string in the format
-            [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-            str_rep = "[Rectangle] ({}) {}/{} - {}/{}".format(
-                str(self.id), str(self.x), str(self.y),
-                str(self.width), str(self.height))
-            return (str_rep)
+    def __str__(self):
+        """override __str__ with new string in the format
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        str_rep = "[Rectangle] ({}) {}/{} - {}/{}".format(
+            str(self.__id), str(self.__x), str(self.__y),
+            str(self.__width), str(self.__height))
+        return (str_rep)
 
     def update(self, *args, **kwargs):
         """assigns an argument to each attribute of Rectangle"""
@@ -101,34 +101,34 @@ class Rectangle(Base):
         if args and len(args) != 0:
             for i in range(len(args)):
                 if i == 0:
-                    self.id = args[i]
+                    self.__id = args[i]
                 if i == 1:
-                    self.width = args[i]
+                    self.__width = args[i]
                 if i == 2:
-                    self.height = args[i]
+                    self.__height = args[i]
                 if i == 3:
-                    self.x = args[i]
+                    self.__x = args[i]
                 if i == 4:
-                    self.y = args[i]
+                    self.__y = args[i]
         else:
             for kw in kwargs:
                 if kw == "id":
-                    self.id = (kwargs[kw])
+                    self.__id = (kwargs[kw])
                 if kw == "width":
-                    self.width = (kwargs[kw])
+                    self.__width = (kwargs[kw])
                 if kw == "height":
-                    self.height = (kwargs[kw])
+                    self.__height = (kwargs[kw])
                 if kw == "x":
-                    self.x = (kwargs[kw])
+                    self.__x = (kwargs[kw])
                 if kw == "y":
-                    self.y = (kwargs[kw])
+                    self.__y = (kwargs[kw])
 
     def to_dictionary(self):
         """returns dictionary representation of a Rectangle"""
         dict_rep = {}
-        dict_rep["id"] = self.id
-        dict_rep["width"] = self.width
-        dict_rep["height"] = self.height
-        dict_rep["x"] = self.x
-        dict_rep["y"] = self.y
+        dict_rep["id"] = self.__id
+        dict_rep["width"] = self.__width
+        dict_rep["height"] = self.__height
+        dict_rep["x"] = self.__x
+        dict_rep["y"] = self.__y
         return dict_rep
