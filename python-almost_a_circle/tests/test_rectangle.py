@@ -20,6 +20,48 @@ class TestRectangle(unittest.TestCase):
         expected_dict = {'id': 42, 'width': 4, 'height': 5, 'x': 1, 'y': 2}
         self.assertDictEqual(r_dict, expected_dict)
 
+    def test_rectangle_display(self):
+        """display test"""
+        r = Rectangle(2, 2)
+        self.assertEqual(r.display(), None)
+
+    def test_rectangle_str(self):
+        """str test"""
+        r = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
+
+    def test_rectangle_update(self):
+        """update test"""
+        r = Rectangle(4, 6, 2, 1, 12)
+        r.update(89)
+        self.assertEqual(str(r), "[Rectangle] (89) 2/1 - 4/6")
+        r.update(89, 2)
+        self.assertEqual(str(r), "[Rectangle] (89) 2/1 - 2/6")
+        r.update(89, 2, 3)
+        self.assertEqual(str(r), "[Rectangle] (89) 2/1 - 2/3")
+        r.update(89, 2, 3, 4)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/1 - 2/3")
+        r.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_rectangle_update_kwargs(self):
+        """update kwargs test"""
+        r = Rectangle(4, 6, 2, 1, 12)
+        r.update(height=1)
+        self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/1")
+        r.update(width=1, x=2)
+        self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 1/1")
+        r.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(r), "[Rectangle] (89) 3/1 - 2/1")
+        r.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r), "[Rectangle] (89) 1/3 - 4/2")
+
+    def test_rectangle_update_args_kwargs(self):
+        """update args kwargs test"""
+        r = Rectangle(4, 6, 2, 1, 12)
+        r.update(89, 2, 3, 4, x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/1 - 2/3")
+
 
 if __name__ == '__main__':
     unittest.main()
