@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """BASE module"""
 
+import json
+
 
 class Base:
     """Base class"""
@@ -60,11 +62,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """ static method to return json string representation
-        Args:
-            list_dictionaries (list): list of dictionaries
-        """
-        import json
+        """method to return json string representation"""
         if list_dictionaries is None or list_dictionaries is []:
             return "[]"
         return json.dumps(list_dictionaries)
