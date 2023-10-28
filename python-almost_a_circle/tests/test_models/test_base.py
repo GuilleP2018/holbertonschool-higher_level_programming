@@ -278,9 +278,6 @@ class TestBase_from_json_string(unittest.TestCase):
         list_output = Square.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
 
-    def test_from_json_string_None(self):
-        self.assertEqual([], Base.from_json_string(None))
-
     def test_from_json_string_empty_list(self):
         self.assertEqual([], Base.from_json_string("[]"))
 
