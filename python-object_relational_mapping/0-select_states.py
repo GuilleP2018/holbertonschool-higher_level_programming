@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Module for connecting to the database hbtn_0e_0_usa and
+"""
 import MySQLdb
 import sys
 
